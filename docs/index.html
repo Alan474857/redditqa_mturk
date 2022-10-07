@@ -9,7 +9,8 @@
   
   <!-- Close internal style sheet --><!-- External JS references -->
   <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 
@@ -86,7 +87,7 @@
     
     .highlight {
       background-color: yellow;
-      font-weight: 900;
+      font-weight: 700;
     }
     
     #instruct-table tr td:first-child {
@@ -253,7 +254,7 @@
   </div>
   <div class="col-xs-12 col-sm-6 content">
     Survey questions regarding the question shown on the left:<br>&#8251 <strong>8 survey questions</strong> to answer in total, please scroll down this column to finish all of the questions then hit the submit button to submit<br>
-    <form name="mturk_form" id="mturk_form" style = "height:350px; overflow-y:auto; padding: 5px; border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 3px; margin:2px;">
+    <form name="mturk_form" id="mturk_form" style = "height:600px; overflow-y:auto; padding: 5px; border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 3px; margin:2px;">
       <input type="hidden" name="tweet_id" value="{{tweetID}}">
     <div class="form-group" style="margin-top: -5px; margin-bottom: 5px;"><label class="group-label"></label>      
       <div class="block">
@@ -411,7 +412,9 @@
         </label>
       </div>
 
-      <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block">
+      <!-- <input type="submit" name="submit" id="submit_btn" class="btn btn-primary btn-lg btn-block"> -->
+      <button class="btn btn-block btn-outline-primary" id="submit_btn" disabled> Submit </button>
+
     </form>
   </div>
 </div>
@@ -423,12 +426,47 @@
 
 
 <script>
+
+class TimeLock {
+    constructor(time, submit_btn) {
+        this.locked = true;
+        this.time = time;
+        this.submit_btn = $(submit_btn);
+        this.id = setInterval(this.time_counter.bind(this), 1000);
+    }
+
+    get is_locked() {
+        return this.locked;
+    }
+
+    time_counter() {
+        // console.log(this.time);
+        this.time -= 1;
+        if (this.time == 0) {
+            this.locked = false;
+            clearInterval(this.id);
+            this.submit_btn.text("Submit");
+            this.submit_btn.attr("disabled", false);
+            return;
+        }
+        this.submit_btn.text("Submit ("+this.time+")");
+    }
+}
+
+
+
 $(document).ready(function() {
 // new functions
 $("input[type='radio']").click(function(evt) {
   var element = $(evt.target);
   element.parents(".block").addClass("finished");
 });
+
+var time_lock = new TimeLock(90, "#submit_btn");
+
+// $("#submit_btn").click(function() {
+//   $("#mturk_form").submit();
+// });
 
 /**
  *  
@@ -518,19 +556,19 @@ $(this).parent().addClass("btn-default");
 });
 // end highlight
 // get Tweet using oembed
-var url = $("#twitterOembed").val();
-if (url==""){
-$(".tweet-box").addClass("error");
-}
-else {
-$.ajax({
-url: "https://api.twitter.com/1/statuses/oembed.json?hide_thread=true&align=center&url="+url,
-dataType: "jsonp",
-success: function(data){
-$(".tweet-box").html(data.html);
-}
-});
-}
+// var url = $("#twitterOembed").val();
+// if (url==""){
+//   $(".tweet-box").addClass("error");
+// }
+// else {
+//   $.ajax({
+//     url: "https://api.twitter.com/1/statuses/oembed.json?hide_thread=true&align=center&url="+url,
+//     dataType: "jsonp",
+//     success: function(data){
+//       $(".tweet-box").html(data.html);
+//     }
+//   });
+// }
 // end get Tweet
 });
 </script>

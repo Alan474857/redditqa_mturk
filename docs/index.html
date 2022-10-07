@@ -1,5 +1,7 @@
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
 
   <!-- End Categorization Layout --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><!-- External CSS references -->
   <!-- <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" />Open internal style sheet -->
@@ -27,7 +29,7 @@
     }
     
     .block {
-      padding: 5px;
+      padding: 10px;
       border: 4px solid red;
       border-radius: 3px;
       margin:2px;
@@ -150,13 +152,27 @@
       margin-top: 30px;
     }
 
+    .question {
+      display: block;
+      padding-bottom: 20px;
+    }
+
+    .radio-inline {
+      cursor: pointer;
+      padding-right: 10px;
+    }
+
+    .radio-inline:hover {
+      text-decoration: underline;
+    }
+
     </style>
 
 </head>
 <body>
 
 <!-- The following snippet enables the 'responsive' behavior on smaller screens -->
-<meta content="width=device-width,initial-scale=1" name="viewport" />
+
 <section class="container" id="Sentiment"><!-- Instructions (collapsible) -->
 <div class="row">
   <h1 style="margin: 0 auto; margin-bottom: 10px;">Answer Survey for a Target Question</h1>
@@ -175,8 +191,8 @@
         <tbody>
         </tbody>
         <colgroup>
-        <col class="col-xs-5 col-md-5" />
-        <col class="col-xs-5 col-md-5" />
+        <col class="col-xs-6 col-md-6" />
+        <col class="col-xs-4 col-md-4" />
         </colgroup>
         <!-- By explaining the sentiment scale, the accuracy of the answers may increase. -->
         <tbody>
@@ -185,39 +201,39 @@
             <th>Example Target Questions and Responses</th>
           </tr>
           <tr>
-            <td>If I have this question, I would <mark class="highlight">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark class="highlight">looking up information by myself</mark> with a computer or a smartphone.</td>
+            <td>1. If I have this question, I would <mark class="highlight">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark class="highlight">looking up information by myself</mark> with a computer or a smartphone.</td>
             <td><i>&quot;So, what is your life goal and what are you intend to do to achieve it?&quot;</i><strong>-Strongly Agree</strong><br>
             <i>&quot;What is a good place to sell art?&quot;</i><strong>-Disagree</strong></td>
           </tr>
           <tr>
-            <td>This question is asking for a response <mark class="highlight">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</td>
+            <td>2. This question is asking for a response <mark class="highlight">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</td>
             <td><i>&quot;Are there 50 states in The United Sates of America?&quot;</i><strong>-Strongly Agree</strong><br>
             <i>&quot;What time is it?&quot;</i><strong>-Strongly Agree</strong><br> 
             <i>&quot;What makes a city better than another?&quot;</i><strong>-Strongly Disgree</strong></td>
           </tr>
           <tr>
-            <td>This question is more about encouraging responders to <mark class="highlight">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</td>
+            <td>3. This question is more about encouraging responders to <mark class="highlight">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</td>
             <td><i>&quot;What is the best story in your family?&quot;</i><strong>-Strongly Agree</strong><br>
             <i>&quot;How do I forward an entire outlook inbox to a different account efficiently?&quot;</i><strong>-Strongly Disagree</strong></td>
           </tr>
           <tr>
-            <td>This question requires or encourages the responders to <mark class="highlight">further discuss</mark> with the asker in order to come up with an <mark class="highlight">appropriate answer</mark>.</td>
+            <td>4. This question requires or encourages the responders to <mark class="highlight">further discuss</mark> with the asker in order to come up with an <mark class="highlight">appropriate answer</mark>.</td>
             <td><i>&quot;What's a good game for a large group (400+ people)?&quot;</i><strong>-Strongly Agree</strong></td>
           </tr>
           <tr>
-            <td>Without reaching out to other people, for a layperson with <mark class="highlight">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</td>
+            <td>5. Without reaching out to other people, for a layperson with <mark class="highlight">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</td>
             <td><i>&quot;What is a good workout for the gym?&quot;</i><strong>-30 minutes - 2 hours</strong></td>
           </tr>
           <tr>
-            <td>If I have this question, I would prefer to have a <mark class="highlight">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark class="highlight">as is</mark> and waiting for the answers.</td>
+            <td>6. If I have this question, I would prefer to have a <mark class="highlight">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark class="highlight">as is</mark> and waiting for the answers.</td>
             <td><i>&quot;How do you learn a concept fast for the sake of studying for an exam?&quot;</i><strong>-Agree</strong></td>
           </tr>
           <tr>
-            <td>Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark class="highlight">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</td>
+            <td>7. Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark class="highlight">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</td>
             <td><i>&quot;What movies don't follow the traditional Hollywood style format?&quot;</i><strong>-Agree</strong></td>
           </tr>
           <tr>
-            <td><mark class="highlight">Without reaching out</mark> to other people to get help, I will be able to <mark class="highlight">answer</mark> the question by looking up information <mark class="highlight">by myself</mark> with access to a computer or a smartphone.</td>
+            <td>8. <mark class="highlight">Without reaching out</mark> to other people to get help, I will be able to <mark class="highlight">answer</mark> the question by looking up information <mark class="highlight">by myself</mark> with access to a computer or a smartphone.</td>
             <td><i>&quot;Who invented optical lences?&quot;</i><strong>-Easy</strong><br>
             <i>&quot;What invention changed history that not many prople recognize?&quot;</i><strong>-Very Difficult</strong></td>
           </tr>
@@ -241,7 +257,7 @@
       <input type="hidden" name="tweet_id" value="{{tweetID}}">
     <div class="form-group" style="margin-top: -5px; margin-bottom: 5px;"><label class="group-label"></label>      
       <div class="block">
-        <label for="q1"><span style="font-weight:normal">1. If I have this question, I would <mark class="highlight">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark class="highlight">looking up information by myself</mark> with a computer or a smartphone.</span></label><br>
+        <label for="q1"><span class="question">1. If I have this question, I would <mark class="highlight">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark class="highlight">looking up information by myself</mark> with a computer or a smartphone.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required> Very Unlikely
         </label>
@@ -260,7 +276,7 @@
       </div>
 
       <div class="block">
-        <label for="q2"><span style="font-weight:normal">2. This question is asking for a response <mark class="highlight">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</span></label><br>
+        <label for="q2"><span class="question">2. This question is asking for a response <mark class="highlight">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" required> Strongly Disagree
         </label>
@@ -279,7 +295,7 @@
       </div>
 
       <div class="block">
-        <label for="q3"><span style="font-weight:normal">3. This question is more about encouraging responders to <mark class="highlight">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</span></label><br>
+        <label for="q3"><span class="question">3. This question is more about encouraging responders to <mark class="highlight">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" required> Strongly Disagree
         </label>
@@ -298,7 +314,7 @@
       </div>
 
       <div class="block">
-        <label for="q4"><span style="font-weight:normal">4. This question requires or encourages the responders to <mark class="highlight">further discuss</mark> with the asker in order to come up with an <mark class="highlight">appropriate answer</mark>.</span></label><br>
+        <label for="q4"><span class="question">4. This question requires or encourages the responders to <mark class="highlight">further discuss</mark> with the asker in order to come up with an <mark class="highlight">appropriate answer</mark>.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1" required> Strongly Disagree
         </label>
@@ -317,7 +333,7 @@
       </div>
 
       <div class="block">
-        <label for="q5"><span style="font-weight:normal">5. Without reaching out to other people, for a layperson with <mark class="highlight">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</span></label><br>
+        <label for="q5"><span class="question">5. Without reaching out to other people, for a layperson with <mark class="highlight">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1" required> 30 minutes or less
         </label>
@@ -339,7 +355,7 @@
       </div>
       
       <div class="block">
-        <label for="q6"><span style="font-weight:normal">6. If I have this question, I would prefer to have a <mark class="highlight">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark class="highlight">as is</mark> and waiting for the answers.</span></label><br>
+        <label for="q6"><span class="question">6. If I have this question, I would prefer to have a <mark class="highlight">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark class="highlight">as is</mark> and waiting for the answers.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions6" id="inlineRadio1" value="option1" required> Strongly Disagree
         </label>
@@ -358,7 +374,7 @@
       </div>
 
       <div class="block">
-        <label for="q7"><span style="font-weight:normal">7. Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark class="highlight">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</span></label><br>
+        <label for="q7"><span class="question">7. Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark class="highlight">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions7" id="inlineRadio1" value="option1" required> Strongly Disagree
         </label>
@@ -377,7 +393,7 @@
       </div>
 
       <div class="block">
-        <label for="q8"><span style="font-weight:normal">8. <mark class="highlight">Without reaching out</mark> to other people to get help, I will be able to <mark class="highlight">answer the question</mark> by looking up information <mark class="highlight">by myself</mark> with access to a computer or a smartphone.</span></label><br>
+        <label for="q8"><span class="question">8. <mark class="highlight">Without reaching out</mark> to other people to get help, I will be able to <mark class="highlight">answer the question</mark> by looking up information <mark class="highlight">by myself</mark> with access to a computer or a smartphone.</span></label><br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions8" id="inlineRadio1" value="option1" required> Very Difficult
         </label>

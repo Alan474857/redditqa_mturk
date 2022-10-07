@@ -184,15 +184,15 @@
         <div class="panel-body" id="instructionBody">In this HIT, you will see:<br>
         <ul>
           <li><strong><span style="color:red">1</span> <span style="color:blue">Target Question</span></strong> that somenoe posted on the Internet, and</li>
-          <li><strong><span style="color:red">8</span> <span style="color:blue">Survey Question</span></strong> that we will ask you about the Target Question above.</li>
+          <li><strong><span style="color:red">8</span> <span style="color:blue">Survey Questions</span></strong> that we will ask you about the Target Question above.</li>
         </ul>
         Please pick the stance/option that <strong>you think is most suitable</strong> for the Target Question. We are trying to collect contect information about how people ask questions online.
       <br>
       <br>
-      The following table are some examples as a reference for you. The table is consist of two columns, the <strong>left column are the survey questions</strong>, the <strong>right column are some example Target Questions and responses</strong> for the survey question.<br>
+      The following table are some examples as a reference for you. The table is consist of two columns, the <strong>left column are the Survey Questions</strong>, the <strong>right column are some example Target Questions and responses</strong> for the survey question.<br>
       <ul>
         <li><strong>Please note that the stance and options chosen for the example Target Questions in the following table are for demonstration purpose only. <span style="color:red">You are encouraged to select whatever stance/option that you think suits the Target Question better.</span></strong></li>
-        <li>Please read the Target Question and survey qestions carefully. You will be able to submit the survey after <strong><span style="color:red">90 seconds</span></strong>.</li>
+        <li>Please read the Target Question and Survey Qestions carefully. You will be able to submit the survey after <strong><span style="color:red">90 seconds</span></strong>.</li>
       </ul>
         &#8251 If you have any questions about the task please contact me at <strong>szh277@psu.edu</strong> thanks!
       <table class="table table-condensed table-striped table-responsive" id="instruct-table">
@@ -254,13 +254,14 @@
 <!-- End instructions --><!-- Categorization Layout -->
 
 <div class="row" id="workContent">
-  <div class="col-xs-12 col-sm-6 content"><label><h4>Target Question:</h4></label>
+  <div class="col-xs-12 col-sm-6 content"><label><h4><span style="color:blue">Target Question:</span?</h4></label>
     <div class="well tweet-box">
       <div style="font-size:16pt;">{{message}}</div>
     </div>
   </div>
   <div class="col-xs-12 col-sm-6 content">
-    Survey questions regarding the question shown on the left:<br>&#8251 <strong>8 survey questions</strong> to answer in total, please scroll down this column to finish all of the questions then hit the submit button to submit<br>
+    <h4><span style="color:blue">Survey Questions regarding the Target Question shown on the left:</span></h4>
+    &#8251 <strong>8 Survey Questions</strong> to answer in total, please scroll down this column to finish all of the questions then hit the submit button to submit<br>
     <form name="mturk_form" id="mturk_form" style = "height:600px; overflow-y:auto; padding: 5px; border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 3px; margin:2px;">
       <input type="hidden" name="tweet_id" value="{{tweetID}}">
     <div class="form-group" style="margin-top: -5px; margin-bottom: 5px;"><label class="group-label"></label>      

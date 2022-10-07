@@ -1,0 +1,453 @@
+<!-- The following snippet enables the 'responsive' behavior on smaller screens -->
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+<section class="container" id="Sentiment"><!-- Instructions (collapsible) -->
+<div class="row">
+  <h1 style="text-align:center;">Answer Survey for a Target Question</h1>
+  <div class="col-xs-12 col-md-12">
+    <div class="panel panel-primary"><!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Survey Instructions</strong>  </a>
+      <div class="panel-body" id="instructionBody">Below, you will see a <strong> Target Question </strong> and <strong>8 survey questions</strong> regarding the Target Question itself. Please pick the stance/option that <strong>you think is most suitable</strong> for the Target Question.<br>
+      <br> 
+      The following table are some examples as a reference for you. The table is consist of two columns, the <strong>left column are the survey questions</strong>, the <strong>right column are some example Target Questions and responses</strong> for the survey question.<br>
+      <ul>
+        <li><strong>Please note that the stance and options chosen for the example Target Questions in the following table are for demonstration purpose only. <span style="color:red">You are encouraged to select whatever stance/option that you think suits the Target Question better.</span></strong></li>
+        <li>Please read the Target Question and survey qestions carefully. You will be able to submit the survey after <strong><span style="color:red">90 seconds</span></strong>.</li>
+      </ul>
+        &#8251 If you have any questions about the task please contact me at <strong>szh277@psu.edu</strong> thanks!
+      <table class="table table-condensed table-striped table-responsive" id="instruct-table">
+        <tbody>
+        </tbody>
+        <colgroup>
+        <col class="col-xs-5 col-md-5" />
+        <col class="col-xs-5 col-md-5" />
+        </colgroup>
+        <!-- By explaining the sentiment scale, the accuracy of the answers may increase. -->
+        <tbody>
+          <tr>
+            <th>Survey Questions</th>
+            <th>Example Target Questions and Responses</th>
+          </tr>
+          <tr>
+            <td>If I have this question, I would <mark style="background: yellow!important">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark style="background: yellow!important">looking up information by myself</mark> with a computer or a smartphone.</td>
+            <td><i>&quot;So, what is your life goal and what are you intend to do to achieve it?&quot;</i><strong>-Strongly Agree</strong><br>
+            <i>&quot;What is a good place to sell art?&quot;</i><strong>-Disagree</strong></td>
+          </tr>
+          <tr>
+            <td>This question is asking for a response <mark style="background: yellow!important">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</td>
+            <td><i>&quot;Are there 50 states in The United Sates of America?&quot;</i><strong>-Strongly Agree</strong><br>
+            <i>&quot;What time is it?&quot;</i><strong>-Strongly Agree</strong><br> 
+            <i>&quot;What makes a city better than another?&quot;</i><strong>-Strongly Disgree</strong></td>
+          </tr>
+          <tr>
+            <td>This question is more about encouraging responders to <mark style="background: yellow!important">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</td>
+            <td><i>&quot;What is the best story in your family?&quot;</i><strong>-Strongly Agree</strong><br>
+            <i>&quot;How do I forward an entire outlook inbox to a different account efficiently?&quot;</i><strong>-Strongly Disagree</strong></td>
+          </tr>
+          <tr>
+            <td>This question requires or encourages the responders to <mark style="background: yellow!important">further discuss</mark> with the asker in order to come up with an <mark style="background: yellow!important">appropriate answer</mark>.</td>
+            <td><i>&quot;What's a good game for a large group (400+ people)?&quot;</i><strong>-Strongly Agree</strong></td>
+          </tr>
+          <tr>
+            <td>Without reaching out to other people, for a layperson with <mark style="background: yellow!important">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</td>
+            <td><i>&quot;What is a good workout for the gym?&quot;</i><strong>-30 minutes - 2 hours</strong></td>
+          </tr>
+          <tr>
+            <td>If I have this question, I would prefer to have a <mark style="background: yellow!important">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark style="background: yellow!important">as is</mark> and waiting for the answers.</td>
+            <td><i>&quot;How do you learn a concept fast for the sake of studying for an exam?&quot;</i><strong>-Agree</strong></td>
+          </tr>
+          <tr>
+            <td>Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark style="background: yellow!important">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</td>
+            <td><i>&quot;What movies don't follow the traditional Hollywood style format?&quot;</i><strong>-Agree</strong></td>
+          </tr>
+          <tr>
+            <td><mark style="background: yellow!important">Without reaching out</mark> to other people to get help, I will be able to <mark style="background: yellow!important">answer</mark> the question by looking up information <mark style="background: yellow!important">by myself</mark> with access to a computer or a smartphone.</td>
+            <td><i>&quot;Who invented optical lences?&quot;</i><strong>-Easy</strong><br>
+            <i>&quot;What invention changed history that not many prople recognize?&quot;</i><strong>-Very Difficult</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End instructions --><!-- Categorization Layout -->
+
+<style type="text/css">
+#instructionBody {
+    padding-bottom: 5px;
+}
+
+#instruct-table {
+    margin-bottom: 5px;
+}
+
+.hashtag {
+color: #2394DD;
+font-weight: 400;
+}
+
+.block {
+  padding: 5px;
+  border: 4px solid red;
+  border-radius: 3px;
+  margin:2px;
+}
+
+/*.block:hover {
+  background: rgba(0, 0, 0, 0.3);
+}*/
+
+.block:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+/*input[type="radio"]:checked{
+  margin-top: -5px;
+}*/
+
+.finished {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tweet-box{
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+</style>
+
+<div class="row" id="workContent">
+  <div class="col-xs-12 col-sm-6 content"><label><h4>Target Question:</h4></label>
+    <div class="well tweet-box">
+      <div style="font-size:16pt;">{{message}}</div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 content">
+    Survey questions regarding the question shown on the left:<br>&#8251 <strong>8 survey questions</strong> to answer in total, please scroll down this column to finish all of the questions then hit the submit button to submit<br>
+    <form name="mturk_form" id="mturk_form" style = "height:350px; overflow-y:auto; padding: 5px; border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 3px; margin:2px;">
+      <input type="hidden" name="tweet_id" value="{{tweetID}}">
+    <div class="form-group" style="margin-top: -5px; margin-bottom: 5px;"><label class="group-label"></label>      
+      <div class="block">
+        <label for="q1"><span style="font-weight:normal">1. If I have this question, I would <mark style="background: yellow!important">reach out to other people</mark>, such as friends, family members, colleagues, or experts, to get help. As compared to finding the answers by <mark style="background: yellow!important">looking up information by myself</mark> with a computer or a smartphone.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required> Very Unlikely
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Unlikely
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> Likely
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5"> Very Likely
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q2"><span style="font-weight:normal">2. This question is asking for a response <mark style="background: yellow!important">within a limited category</mark>. For example, questions in the following categories: Yes/No, "Does anybody else...", Either/or, "Would you rather...", polls, surveys and fill-in-the-blank questions.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" required> Strongly Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option4"> Agree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option5"> Strongly Agree
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q3"><span style="font-weight:normal">3. This question is more about encouraging responders to <mark style="background: yellow!important">express their diverse experiences, opinions, or preferences</mark> than actually getting help.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" required> Strongly Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="option4"> Agree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option5"> Strongly Agree
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q4"><span style="font-weight:normal">4. This question requires or encourages the responders to <mark style="background: yellow!important">further discuss</mark> with the asker in order to come up with an <mark style="background: yellow!important">appropriate answer</mark>.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1" required> Strongly Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="option2"> Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="option4"> Agree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option5"> Strongly Agree
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q5"><span style="font-weight:normal">5. Without reaching out to other people, for a layperson with <mark style="background: yellow!important">no background knowledge</mark> related to this question. How long do you think it would likely take for them to figure out the answer to this question with access to the internet?</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1" required> 30 minutes or less
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="option2"> 30 minutes - 2 hours
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> 2 hours - half a day
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="option4"> half a day - 1 day
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option5"> 1 day or more
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions5" id="inlineRadio6" value="option6"> Undoable
+        </label>
+      </div>
+      
+      <div class="block">
+        <label for="q6"><span style="font-weight:normal">6. If I have this question, I would prefer to have a <mark style="background: yellow!important">conversation</mark> regarding the details of the question and have a further discussion with the answerer. As compared to asking the question <mark style="background: yellow!important">as is</mark> and waiting for the answers.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions6" id="inlineRadio1" value="option1" required> Strongly Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions6" id="inlineRadio2" value="option2"> Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions6" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions6" id="inlineRadio4" value="option4"> Agree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions6" id="inlineRadio5" value="option5"> Strongly Agree
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q7"><span style="font-weight:normal">7. Suppose I asked this question using a computer or smartphone instead of making phone calls or in person sessions. In that case, I <mark style="background: yellow!important">prefer the answer to be provided through a conversation</mark> (e.g., via WhatsApp or other messaging applications) compared to other written formats, such as emails, social media replies, or online forums.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions7" id="inlineRadio1" value="option1" required> Strongly Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions7" id="inlineRadio2" value="option2"> Disagree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions7" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions7" id="inlineRadio4" value="option4"> Agree
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions7" id="inlineRadio5" value="option5"> Strongly Agree
+        </label>
+      </div>
+
+      <div class="block">
+        <label for="q8"><span style="font-weight:normal">8. <mark style="background: yellow!important">Without reaching out</mark> to other people to get help, I will be able to <mark style="background: yellow!important">answer the question</mark> by looking up information <mark style="background: yellow!important">by myself</mark> with access to a computer or a smartphone.</span></label><br>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions8" id="inlineRadio1" value="option1" required> Very Difficult
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions8" id="inlineRadio2" value="option2"> Difficult
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions8" id="inlineRadio3" value="option3"> Neutral
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions8" id="inlineRadio4" value="option4"> Easy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions8" id="inlineRadio5" value="option5"> Very Easy
+        </label>
+      </div>
+
+      <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+</div>
+
+</section>
+
+
+
+
+<!-- End Categorization Layout --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><!-- External CSS references -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" /><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+color:#fff;
+display: block;
+text-decoration: none;
+}
+#submitButton{
+white-space: normal;
+}
+#instructionBody table{
+font-size: 14px;
+margin-top: 10px;
+}
+#instructionBody table caption{
+text-align: left;
+padding: 0 0 5px 0;
+}
+#Inputs{
+display: block;
+}
+.content{
+margin-bottom: 15px;
+}
+.radio:first-of-type{
+margin-top: -5px;
+}
+.tweet-box.error{
+border: 1px solid red;
+}
+</style>
+<!-- Close internal style sheet --><!-- External JS references --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Open internal javascript --><script>
+$(document).ready(function() {
+// new functions
+$("input[type='radio']").click(function(evt) {
+  var element = $(evt.target);
+  element.parents(".block").addClass("finished");
+});
+
+/**
+ *  
+ *  gup(name) :: retrieves URL parameters if provided
+ *
+ *  Prepares the page for MTurk on load.
+ *  1. looks for a form element with id="mturk_form", and sets its METHOD / ACTION
+ *    1a. All that the task page needs to do is submit the form element when ready
+ *  2. disables form elements if HIT hasn't been accepted
+ *
+ **/
+
+// selector used by jquery to identify your form
+var form_selector = "#mturk_form";
+
+// function for getting URL parameters
+function gup(name) {
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.href);
+  if(results == null)
+    return "";
+  else return unescape(results[1]);
+}
+
+//  Turkify the captioning page.
+$(document).ready(function () {
+  // is assigntmentId is a URL parameter
+  if((aid = gup("assignmentId"))!="" && $(form_selector).length>0) {
+
+    // If the HIT hasn't been accepted yet, disabled the form fields.
+    if(aid == "ASSIGNMENT_ID_NOT_AVAILABLE") {
+      $('input,textarea,select').attr("DISABLED", "disabled");
+    }
+
+    // Add a new hidden input element with name="assignmentId" that
+    // with assignmentId as its value.
+    var aid_input = $("<input type='hidden' name='assignmentId' value='" + aid + "'>").appendTo($(form_selector));
+
+    // Make sure the submit form's method is POST
+    $(form_selector).attr('method', 'POST');
+
+    // Set the Action of the form to the provided "turkSubmitTo" field
+    if((submit_url=gup("turkSubmitTo"))!="") {
+      $(form_selector).attr('action', submit_url + '/mturk/externalSubmit');
+    }
+  }
+});
+
+// Instructions expand/collapse
+var content = $('#instructionBody');
+var trigger = $('#collapseTrigger');
+$("#checkbox1").on("change", function(){
+if($("#checkbox1:checked").length>0){//selected
+$("#Inputs").hide();
+}else{
+$("#Inputs").show();
+}
+});
+/*
+content.hide();
+$('.collapse-text').text('(Click to expand)');
+trigger.click(function(){
+content.toggle();
+var isVisible = content.is(':visible');
+if(isVisible){
+$('.collapse-text').text('(Click to collapse)');
+}else{
+$('.collapse-text').text('(Click to expand)');
+}
+});
+*/
+// end expand/collapse
+// highlight selected category
+var inputs = $("#Inputs input:radio");
+inputs.change(function(){
+inputs.parent().removeClass("btn-success");
+inputs.parent().addClass("btn-default");
+if($(this).is(":checked")){
+$(this).parent().removeClass("btn-default");
+$(this).parent().addClass("btn-success");
+}else{
+$(this).parent().removeClass("btn-success");
+$(this).parent().addClass("btn-default");
+}
+});
+// end highlight
+// get Tweet using oembed
+var url = $("#twitterOembed").val();
+if (url==""){
+$(".tweet-box").addClass("error");
+}
+else {
+$.ajax({
+url: "https://api.twitter.com/1/statuses/oembed.json?hide_thread=true&align=center&url="+url,
+dataType: "jsonp",
+success: function(data){
+$(".tweet-box").html(data.html);
+}
+});
+}
+// end get Tweet
+});
+</script><!-- Close internal javascript
